@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/keyboard.css">
+</head>
+
+<body>
+    
+  <div class="header-section">
+    <div><a class="blog-home-link" href="#"><h1 class="blog-name">RAINBOW KEYBOARD</h1></a>
+      <div class="navigation-bar"><a class="nav-link" href="#" onclick="showColor()">COLOR</a><a class="nav-link" href="#" onclick="showText()">TEXT</a><a class="nav-link" href="#" onclick="clearFunction()">CLEAR</a><a class="nav-link" href="#" onclick="printFunction()">PRINT</a>
+      </div>
+    </div>
+  </div> <!--/header div-->
+    
+  <div class="section">
+    <div class="content-wrapper">
+      <div class="heading-wrapper">
+        <div id="colorBox" onkeydown="urFunction()" contenteditable="true" placeholder="Type something"></div>
+        <div id="textBox" onkeydown="urFunction()" contenteditable="true" placeholder="TYPE SOMETHING"></div>
+        <div class="byline-wrapper">
+          <div class="byline-text"> </div>
+        </div>
+      </div>
+    </div>
+  </div> <!--/section div-->
+    
+  <div class="footer">
+    <div class="">
+      <div>
+        <a class="social-icon-link" href="http://www.twitter.com/dalma/"><img src="images/social-18.svg" width="20"></a>
+        <a class="social-icon-link" href="mailto:dalma.boros@gmail.com"><img src="images/social-30.svg" width="20"></a>
+      </div>
+      <div class="footer-text"><a class="footer-link" href="http://www.dalmaboros.com/">DALMA BOROS</a>
+      </div>
+    </div>
+  </div> <!--/footer div-->
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    
+<script src=js/keyboard.js></script>    
+</body>
+    
+</html>
