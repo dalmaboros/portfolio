@@ -1,104 +1,105 @@
+/* Fonts */
 @font-face {
   font-family: Swiss721;
   src: url(../fonts/Swiss721BT-RomanCondensed.otf);
 }
 
-body {
-  background: #fff000;
-  font-family: Helvetica;
+/* Main Styling */
+html, body {
+  height: 100%;
+  min-height: 420px;
+  margin: 0;
+  overflow: hidden; /* disable scrolling */
 }
 
-.main {
-  padding: 15% 0 0 5%;
-  height: auto;
+body {
+  background-color: #FFF000;
+  color: black;
+  font-family: Helvetica;
 }
 
 a {
   text-decoration: none;
-  color: #000;
+  color: #000000;
 }
 
-h1 {
-  font-size: 4em;
+.personal-website .personal {
+  display: block;
+  font-size: 1em;
+  line-height: .75em;
 }
 
-h2 {
+.personal-website .website {
+  display: block;
   font-size: 2em;
 }
 
-h1, h2 {
-  line-height: 0.1em;
-}
+/* Flex Zone */
 
-.trademark {
-  font-size: smaller;
-}
-
-/* FACTS */
-#facts {
-  background-color: white;
-  border: 1px solid black;
-  padding: 0px 5px;
-  width: 33%;
-}
-
-#ingredients {
-  width: 33%;
-}
-
-/* FOOTER */
-
-.footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  text-align: left;
-}
-
-.footer p {
-  font-size: 1.5em;
-  line-height: 0em;
-}
-
-.footer-top {
-  border-bottom: 2px solid #000;
-  padding-left: 5%;
-}
-
-.footer-top p {
-  font-weight: bold;
-}
-
-.footer-bottom {
-  position: relative;
-}
-
-.footer-date {
-  display: inline-block;
-  padding-left: 5%;
-  margin-right: -5%;
-  width: 66%;
-}
-
-.footer-date p {
-  font-size: 2em;
-}
-
-.footer-details {
-  position: absolute;
-  display: inline-block;
-  border-left: 2px solid #000;
-  width: 33%;
-  padding-left: 5%;
-  /* padding-top: 1.5%; */
-  /* padding-bottom: -3%; */
-  margin-right: -5%;
+.outer-wrap {
+  display: flex;
+  flex-flow: column;
   height: 100%;
 }
 
-.footer-details p {
+.content-area {
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+  padding-left: 3em;
+}
+
+.main-content-area {
+  display: flex;
+  flex-flow: column;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.brand-area {
+  font-size: 1.5em;
+  line-height: 0em;
+  font-weight: bold;
+}
+
+.brand-area .trademark {
+  font-size: smaller;
+}
+
+.site-footer {
+  display: flex;
+  flex-flow: row;
+  border-top: 2px black solid;
+}
+
+.site-footer div {
+  /* background-color: blue; */
+  padding-left: 3em;
+  padding-bottom: .75em;
+  /* padding-top: .1em; */
+  line-height: .1em;
+}
+
+.site-footer .year {
+  flex-grow: 3;
+  border-right: 2px black solid;
+}
+
+.site-footer .year p {
+  font-size: 2em;
+}
+
+.site-footer .stay-cool {
+  flex-grow: 1;
   font-family: Swiss721;
   font-size: 1em;
   text-transform: uppercase;
+  padding-top: 1em;
+  padding-left: 3em;
+}
+
+@media screen and (min-width: 810px) {
+  .content-area, .site-footer .year, .site-footer .stay-cool {
+    padding-left: 4em;
+  }
 }
