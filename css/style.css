@@ -9,7 +9,7 @@ html, body {
   height: 100%;
   min-height: 420px;
   margin: 0;
-  overflow: hidden; /* disable scrolling */
+  /* overflow: hidden; /* disable scrolling */ */
 }
 
 body {
@@ -43,17 +43,21 @@ a {
 }
 
 .content-area {
+  /* background-color: pink; */
   display: flex;
   flex-flow: column;
   flex-grow: 1;
   padding-left: 3em;
+  padding-right: 3em;
 }
 
 .main-content-area {
   display: flex;
   flex-flow: column;
   flex-grow: 1;
-  justify-content: center;
+  width: 320px;
+  padding: 2em 0 1em;
+  /* background-color: red; */
 }
 
 .brand-area {
@@ -102,4 +106,109 @@ a {
   .content-area, .site-footer .year, .site-footer .stay-cool {
     padding-left: 4em;
   }
+}
+
+/* Start Projects Styles */
+
+.projects-container {
+  display: flex;
+  flex-flow: column;
+  background-color: white;
+  border: 1px black solid;
+  width: 100%;
+  padding: .5em;
+  box-sizing: border-box;
+}
+
+.projects-container p {
+  padding: 0;
+  margin: .25em;
+}
+
+.projects-container h2 {
+  padding: 0;
+  margin: 0;
+}
+
+.projects-header {
+  display: flex;
+  flex-flow: column;
+  border-bottom: 3px black solid;
+}
+
+.portfolio-project-amounts {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  border-bottom: 2px black solid;
+  font-size: .8em;
+  font-weight: bold;
+}
+
+.portfolio-projects {
+  border-bottom: 3px black solid;
+}
+
+.portfolio-project {
+  display: flex;
+  flex-flow: column;
+  padding: 0;
+}
+
+.portfolio-project-title {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+
+.portfolio-project-links {
+  display: flex;
+  flex-flow: column;
+  border-bottom: 1px solid black;
+  padding-left: .75em;
+}
+
+.portfolio-project-links p:first-child {
+  border-bottom: 1px solid black;
+  margin-bottom: .1em;
+  margin-right: -.02em;
+}
+
+.portfolio-title, .percentage {
+  font-weight: bold;
+}
+
+.portfolio-title .git-commits {
+  font-weight: normal;
+}
+
+.side-project {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  border-bottom: 1px black solid;
+}
+
+.side-project:last-child, .portfolio-project:last-child .portfolio-project-links {
+  border-bottom: none;
+}
+
+/* End Projects Styles */
+
+/* Satisfaction/Ingredients Styles */
+
+.satisfaction-guaranteed, .ingredients {
+  font-family: Swiss721;
+  font-size: .8em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.ingredients {
+  text-align: left;
+  font-size: .9em;
+}
+
+.satisfaction-guaranteed p {
+  margin: .25em;
 }
