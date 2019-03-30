@@ -251,10 +251,6 @@ a {
   font-weight: bold;
 }
 
-.portfolio-title .git-commits {
-  font-weight: normal;
-}
-
 .side-project {
   display: -webkit-box;
   display: -ms-flexbox;
