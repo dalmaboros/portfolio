@@ -70,7 +70,9 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-          align-items: center;
+          -webkit-box-align: center;
+              -ms-flex-align: center;
+                  align-items: center;
 }
 
 .main-content-area .index-page {
@@ -184,7 +186,6 @@ a {
       -ms-flex-flow: column;
           flex-flow: column;
   border-bottom: 3px black solid;
-  color: purple;
 }
 
 .portfolio-project-amounts {
@@ -327,7 +328,8 @@ a {
   .ingredients {
     width: 240px;
     padding-left: 2em;
-    align-self: flex-start;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
   }
 
   .ingredients p {
