@@ -37,70 +37,39 @@ a {
 /* Flex Zone */
 
 .outer-wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
+  flex-flow: column;
   height: 100%;
 }
 
 .content-area {
   /* background-color: pink; */
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  flex-flow: column;
+  flex-grow: 1;
   padding-left: 3em;
   /* padding-right: 3em; */
   /* align-items: center; */
 }
 
 .main-content-area {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  flex-flow: column;
+  flex-grow: 1;
   /* width: 320px; */
   /* padding: 2em 0 1em; */
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   /* background-color: red; */
 }
 
 .main-content-area .index-page {
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
+  justify-content: flex-start;
+  flex-flow: column;
 }
 
 .site-footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
+  flex-flow: column;
 }
 
 .footer-brand {
@@ -115,8 +84,6 @@ a {
   font-size: smaller;
 }
 .footer-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -126,9 +93,7 @@ a {
 }
 
 .site-footer .year {
-  -webkit-box-flex: 3;
-      -ms-flex-positive: 3;
-          flex-grow: 3;
+  flex-grow: 3;
   border-right: 2px black solid;
   line-height: 0;
 }
@@ -138,9 +103,7 @@ a {
 }
 
 .site-footer .stay-cool {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  flex-grow: 1;
   font-family: Swiss721;
   font-size: 1em;
   text-transform: uppercase;
@@ -158,19 +121,13 @@ a {
 }
 
 .projects-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
+  flex-flow: column;
   background-color: white;
   border: 1px black solid;
   /* width: 320px; */
   padding: .5em;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   /* margin-top: 2.6em; */
 }
 
@@ -189,27 +146,15 @@ a {
 }
 
 .projects-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
+  flex-flow: column;
   border-bottom: 3px black solid;
 }
 
 .portfolio-project-amounts {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row;
-          flex-flow: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-flow: row;
+  justify-content: space-between;
   border-bottom: 2px black solid;
   font-size: .8em;
   font-weight: bold;
@@ -220,34 +165,20 @@ a {
 }
 
 .portfolio-project {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
+  flex-flow: column;
   padding: 0;
 }
 
 .portfolio-project-title {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   border-bottom: 1px solid black;
 }
 
 .portfolio-project-links {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
+  flex-flow: column;
   border-bottom: 1px solid black;
   padding-left: .75em;
 }
@@ -267,16 +198,9 @@ a {
 }
 
 .side-project {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row;
-          flex-flow: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-flow: row;
+  justify-content: space-between;
   border-bottom: 1px black solid;
 }
 
@@ -316,9 +240,7 @@ a {
   .content-area, .footer-info div {
     padding-left: 4em;
     padding-right: 4em;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    justify-content: flex-start;
   }
 
   .footer-brand {
@@ -327,13 +249,8 @@ a {
 
   .projects-page {
     /* background-color: green; */
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: row;
-            flex-flow: row;
+    justify-content: flex-start;
+    flex-flow: row;
     padding-bottom: 2em;
   }
 
