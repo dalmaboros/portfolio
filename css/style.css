@@ -54,7 +54,6 @@ a {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  padding-left: 3em;
 }
 
 .main-content-area {
@@ -71,6 +70,7 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+          align-items: center;
 }
 
 .main-content-area .index-page {
@@ -184,7 +184,7 @@ a {
       -ms-flex-flow: column;
           flex-flow: column;
   border-bottom: 3px black solid;
-  color: pink;
+  color: purple;
 }
 
 .portfolio-project-amounts {
@@ -327,6 +327,7 @@ a {
   .ingredients {
     width: 240px;
     padding-left: 2em;
+    align-self: flex-start;
   }
 
   .ingredients p {
