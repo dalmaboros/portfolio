@@ -56,10 +56,15 @@ a {
   display: flex;
   flex-flow: column;
   flex-grow: 1;
-  width: 320px;
+  /* width: 320px; */
   /* padding: 2em 0 1em; */
   justify-content: center;
   /* background-color: red; */
+}
+
+.main-content-area .index-page {
+  justify-content: flex-start;
+  flex-flow: column;
 }
 
 .site-footer {
@@ -106,26 +111,27 @@ a {
   padding-left: 3em;
 }
 
-@media screen and (min-width: 810px) {
-  .content-area, .footer-info div {
-    padding-left: 4em;
-  }
 
-  .footer-brand {
-    padding-left: 2.65em;
-  }
-}
 
 /* Start Projects Styles */
+
+.projects-and-guarantee {
+  width: 320px;
+  /* background-color: purple; */
+}
 
 .projects-container {
   display: flex;
   flex-flow: column;
   background-color: white;
   border: 1px black solid;
-  width: 100%;
+  /* width: 320px; */
   padding: .5em;
   box-sizing: border-box;
+  /* margin-top: 2.6em; */
+}
+
+.projects-page {
   margin-top: 2.6em;
 }
 
@@ -225,4 +231,39 @@ a {
 .ingredients {
   text-align: left;
   font-size: .9em;
+  width: 320px;
 }
+
+/* Start Media Query */
+
+@media screen and (min-width: 716px) {
+  .content-area, .footer-info div {
+    padding-left: 4em;
+    padding-right: 4em;
+    justify-content: flex-start;
+  }
+
+  .footer-brand {
+    padding-left: 2.65em;
+  }
+
+  .projects-page {
+    /* background-color: green; */
+    justify-content: flex-start;
+    flex-flow: row;
+    padding-bottom: 2em;
+  }
+
+  .ingredients {
+    width: 240px;
+    padding-left: 2em;
+  }
+
+  .ingredients p {
+    /* background-color: orange; */
+    margin: 0;
+    padding: 0;
+  }
+}
+
+/* End Media Query */
