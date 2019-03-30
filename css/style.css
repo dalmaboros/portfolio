@@ -199,6 +199,7 @@ a {
       -ms-flex-flow: column;
           flex-flow: column;
   border-bottom: 3px black solid;
+  color: red;
 }
 
 .portfolio-project-amounts {
