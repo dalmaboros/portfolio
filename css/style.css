@@ -6,11 +6,8 @@
 
 /* Main Styling */
 html, body {
-  height: 100vh;
-  min-height: 100vh;
-  /* min-height: 420px; */
+  /* height: 100%; */
   margin: 0;
-  /* overflow: scroll; */
 }
 
 body {
@@ -45,8 +42,8 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  height: 100%;
-  min-height: 420px;
+  /* height: 100%; */
+  /* min-height: 420px; */
 }
 
 .content-area {
@@ -199,7 +196,7 @@ a {
       -ms-flex-flow: column;
           flex-flow: column;
   border-bottom: 3px black solid;
-  color: red;
+  color: pink;
 }
 
 .portfolio-project-amounts {
