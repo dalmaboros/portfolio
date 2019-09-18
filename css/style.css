@@ -10,7 +10,10 @@ html, body {
 }
 
 body {
-  background-color: #FFF000;
+  /* Original color */
+  /* background-color: #FFF000; */
+  /* New color */
+  background-color: #FED700;
   color: black;
   font-family: Helvetica;
 }
