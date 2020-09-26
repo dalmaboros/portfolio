@@ -20,7 +20,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #000000;
+  color: #000;
 }
 
 .personal-website .personal {
@@ -47,6 +47,7 @@ a {
 }
 
 .content-area {
+  padding-left: 3em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -142,8 +143,6 @@ a {
   padding-top: .1em;
   padding-left: 3em;
 }
-
-
 
 /* Start Projects Styles */
 
