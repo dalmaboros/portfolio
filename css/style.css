@@ -148,6 +148,8 @@ a {
 
 .projects-and-guarantee {
   width: 320px;
+  -ms-flex-item-align: start;
+    align-self: flex-start;
 }
 
 .projects-container {
