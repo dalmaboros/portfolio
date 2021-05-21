@@ -192,8 +192,10 @@ const rainbowFunction = event => {
                 textBox.appendChild(document.createElement('span'));
                 break;
             case 8: // backspace
-                colorBox.removeChild(colorBox.lastChild);
-                textBox.removeChild(textBox.lastChild);
+                if (colorBox.childNodes.length > 0) {
+                    colorBox.removeChild(colorBox.lastChild);
+                    textBox.removeChild(textBox.lastChild);
+                }
                 break;
             
             // Punctuation
@@ -236,3 +238,14 @@ const rainbowFunction = event => {
 //     console.log("Triggerboom");
 //     $('#colorBox').trigger('getheight');
 // };
+
+const konami = "38,38,40,40,37,39,37,39,66,65";
+let keyCodes = [];
+
+window.addEventListener("keydown", event => {
+    keyCodes.push(event.keyCode );
+    if ( keyCodes.toString().indexOf( konami ) >= 0 ) {
+        document.getElementsByTagName("body")[0].classList.add("konami");
+        keyCodes = [];
+    }
+}, true);

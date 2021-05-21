@@ -97,10 +97,6 @@ header {
   text-decoration: none;
 }
 
-.header-home-link:hover {
-  opacity: 0.82;
-}
-
 .header-name {
   display: inline-block;
   padding: 0px 70px;
@@ -111,10 +107,6 @@ header {
   -webkit-transition: color 300ms ease;
   transition: color 300ms ease;
   text-transform: uppercase;
-}
-
-.header-name:hover {
-  color: #6d6d6d;
 }
 
 .rainbow-text:hover {
@@ -132,13 +124,6 @@ header {
   100% {background-position:0% 50%;}
 }
 
-.rainbow-text-still:hover {
-  background-image: linear-gradient(to left, pink, #af9dd3, #85b4f5, #b2e21b, #e0ee00, #ffb400, #cc0000);   
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
 /* Navigation */
 nav {
   margin-top: 10px;
@@ -150,8 +135,6 @@ nav {
   margin-right: 10px;
   margin-left: 10px;
   padding: 7px 0px;
-  -webkit-transition: color 200ms ease;
-  transition: color 200ms ease;
   font-family: Montserrat, sans-serif;
   color: #595959;
   font-size: 16px;
@@ -160,15 +143,18 @@ nav {
   letter-spacing: 2px;
   text-decoration: none;
   text-transform: uppercase;
+  -webkit-transition: opacity 300ms ease;
+  transition: opacity 300ms ease;
 }
 
 .nav-link:hover {
-  color: #b9b9b9;
+  /* color: #b9b9b9; */
+  opacity: 0.37;
 }
 
-.nav-link.w--current {
+/* .nav-link.w--current {
   color: #b9b9b9;
-}
+} */
 
 /* Rainbow Box */
 main {
@@ -176,7 +162,7 @@ main {
   position: relative;
   padding-right: 2.5%;
   padding-left: 2.5%;
-  background-color: #fff;
+  background-color: transparent;
 }
 
 .content-wrapper {
@@ -192,7 +178,7 @@ main {
   height: 100%;
   text-transform: uppercase;
   font-style: italic;
-  color: #b9b9b9;
+  color: rgba(0, 0, 0, .20);
   cursor:text;
   caret-color: #595959;
 }
@@ -278,11 +264,12 @@ footer {
   color: rgba(0, 0, 0, .74);
   text-decoration: none;
   -webkit-transition: color 200ms ease;
-  transition: color 200ms ease;
+  transition: opacity 200ms ease;
 }
 
 .footer-link:hover {
-  color: #b9b9b9;
+  /* color: #b9b9b9; */
+  opacity: 0.37;
 }
 
 .footer-link.with-icon {
@@ -340,4 +327,18 @@ footer {
   .content-wrapper {
     width: 75%;
   }
+}
+
+.konami {
+  /* width: 100%;
+  height: 100%;
+  position: absolute; */
+  background: repeating-linear-gradient(45deg,#F17C58, #E94584, #24AADB , #27DBB1,#FFDC18, #FF3706);
+  background-size: 400% 400%;
+  animation: gradient 8s linear infinite;
+  animation-direction: alternate;
+}
+@keyframes gradient {
+  0% {background-position: 0%}
+  100% {background-position: 100%}
 }
