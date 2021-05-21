@@ -60,7 +60,7 @@ p {
 
 html {
   height: 100%;
-  max-width: 100%;
+  /* max-width: 100%; */
 }
 
 body {
@@ -76,11 +76,11 @@ body {
     animation: fadein 3s;
 }
 
-/* .wrapper {
+.wrapper {
   min-height: 100%;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-} */
+  /* display: grid;
+  grid-template-rows: auto 1fr auto; */
+}
 
 /* Header */
 header {
@@ -309,8 +309,8 @@ footer {
 @media (max-width: 479px) {
   .nav-link {
     display: inline-block;
-    margin-right: 10px;
-    margin-left: 10px;
+    /* margin-right: 10px;
+    margin-left: 10px; */
     padding-right: 0px;
     padding-left: 0px;
     border: 1px none #595959;
@@ -320,7 +320,8 @@ footer {
   .blog-post {
     margin-bottom: 54px;
   }
-  .blog-name {
+  .header-name {
+    padding: 0px;
     font-size: 50px;
     line-height: 54px;
   }
