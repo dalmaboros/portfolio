@@ -1,47 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/keyboard.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <!-- I should probably add some SEO things? -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="css/keyboard.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <title>Rainbow Keyboard</title>
 </head>
 
 <body>
+  <div class="wrapper">
+    <header>
+      <!-- I wonder why this needs to be an anchor? -->
+      <a class="header-home-link" href="#"><h1 class="header-name rainbow-text">Rainbow Keyboard</h1></a>
+      <nav>
+        <a class="nav-link" href="#" onclick="showColorBox()">Color</a>
+        <a class="nav-link" href="#" onclick="showTextBox()">Text</a>
+        <a class="nav-link" href="#" onclick="clearBoxes()">Clear</a>
+        <a class="nav-link" href="#" onclick="window.print()">Print</a>
+      </nav>
+    </header>
 
-  <div class="header-section">
-    <div><a class="blog-home-link" href="#"><h1 class="blog-name">RAINBOW KEYBOARD</h1></a>
-      <div class="navigation-bar"><a class="nav-link" href="#" onclick="showColor()">COLOR</a><a class="nav-link" href="#" onclick="showText()">TEXT</a><a class="nav-link" href="#" onclick="clearFunction()">CLEAR</a><a class="nav-link" href="#" onclick="printFunction()">PRINT</a>
-      </div>
-    </div>
-  </div> <!--/header div-->
-
-  <div class="section">
-    <div class="content-wrapper">
-      <div class="heading-wrapper">
-        <div id="colorBox" onkeydown="urFunction()" contenteditable="true" placeholder="type here"></div>
-        <div id="textBox" onkeydown="urFunction()" contenteditable="true" placeholder=""></div>
+    <main>
+      <div class="content-wrapper">
+        <div id="colorBox" onkeydown="rainbowFunction(event)" contenteditable="true" placeholder="Begin typing here" autofocus></div>
+        <div id="textBox" onkeydown="rainbowFunction(event)" contenteditable="true" placeholder=""></div>
+        
         <div class="byline-wrapper">
           <div class="byline-text"> </div>
         </div>
       </div>
-    </div>
-  </div> <!--/section div-->
+    </main>
 
-  <div class="footer">
-    <div class="">
+    <footer>
       <div>
-        <a class="social-icon-link" href="http://www.twitter.com/dalma/" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a class="social-icon-link" href="http://www.github.com/dalmaboros/" target="_blank"><i class="fab fa-github"></i></a>
-        <a class="social-icon-link" href="mailto:dalma.boros@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+        <a class="social-icon-link" href="http://www.github.com/dalmaboros/" aria-label="View Dalma's GitHub profile" target="_blank">
+          <i aria-hidden="true" class="fab fa-github" title="GitHub"></i></a>
+        <a class="social-icon-link" href="mailto:dalma.boros@gmail.com" aria-label="Email Dalma" target="_blank">
+          <i aria-hidden="true" class="fas fa-envelope" title="Email"></i></a>
       </div>
-      <div class="footer-text"><a class="footer-link" href="http://www.dalmaboros.com/">DALMA BOROS</a>
-      </div>
-    </div>
-  </div> <!--/footer div-->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+      <div class="footer-text"><a class="footer-link" href="http://www.dalmaboros.com/">Dalma Boros</a></div>
+    </footer>
+  </div> <!-- end wrapper class -->
 
-<script src=js/keyboard.js></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src=js/keyboard.js></script>
 </body>
 
 </html>

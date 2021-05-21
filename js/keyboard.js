@@ -1,253 +1,238 @@
-//Set global variables referring to 2 main content divs
-var colorBox = document.getElementById("colorBox");
-var textBox = document.getElementById("textBox");
+const colors = {
+    a: { hex: "#ffc0cb", name: "pink" }, 
+    b: { hex: "#ffb400", name: "mac & cheese" }, 
+    c: { hex: "#b2e21b", name: "inchworm" }, 
+    d: { hex: "#51670c", name: "dark sea green" }, 
+    e: { hex: "#85b4f5", name: "periwinkle" }, 
+    f: { hex: "#09e1e2", name: "happy ever after" }, 
+    g: { hex: "#6a1b93", name: "purple mountains" }, 
+    h: { hex: "#820224", name: "brick red" }, 
+    i: { hex: "#905695", name: "red violet" }, 
+    j: { hex: "#cc0000", name: "red" }, 
+    k: { hex: "#006b81", name: "navy niblet" }, 
+    l: { hex: "#f97160", name: "melon" }, 
+    m: { hex: "#849c64", name: "asparagus" }, 
+    n: { hex: "#07b0b1", name: "robin's egg blue" }, 
+    o: { hex: "#e0ee00", name: "green yellow" }, 
+    p: { hex: "#909090", name: "gray" }, 
+    q: { hex: "#af9dd3", name: "violet" }, 
+    r: { hex: "#67552d", name: "bear hug" }, 
+    s: { hex: "#9a9a00", name: "olive green" }, 
+    t: { hex: "#ccae00", name: "gold" }, 
+    u: { hex: "#ff6f00", name: "orange" }, 
+    v: { hex: "#dddddd", name: "silver" }, 
+    w: { hex: "#0073e2", name: "blue" }, 
+    x: { hex: "#2cd996", name: "sea green" }, 
+    y: { hex: "#99cfe0", name: "cadet blue" }, 
+    z: { hex: "#fa7292", name: "salmon" }
+}
 
-//Make text textBox same height as colorBox
-$('#colorBox').bind('getheight', function() {
-    var jdiv = $('#colorBox').height();
-    $("#textBox").height(jdiv);
-});
+const colorBox = document.getElementById("colorBox");
+const textBox = document.getElementById("textBox");
 
-$(window).resize(triggerBoom);
-
-function triggerBoom(){
-    $('#colorBox').trigger('getheight');
-};
-
-//Show colorBox
-function showColor() {
+// Navigation functions
+const showColorBox = () => {
     colorBox.style.display = "block";
     textBox.style.display = "none";
-    document.getElementsByTagName("body").focus();
-}
-    
-//Show textBox
-function showText() {
-    colorBox.style.display = "none";
-    textBox.style.display = "block";
-    document.getElementsByTagName("body").focus();
+    document.getElementsByTagName("body")[0].focus();
 }
 
-//Clear everything, rainbow and text
-function clearFunction() {
+const showTextBox = () => {
+    // $('#colorBox').trigger('getheight');
+    colorBox.style.display = "none";
+    textBox.style.display = "block";
+    document.getElementsByTagName("body")[0].focus();
+}
+
+const clearBoxes = () => {
     if (confirm("Do you really want to delete everything?")) {
         colorBox.innerHTML="";
         textBox.innerHTML="";
-        $('#colorBox').trigger('getheight');
+        // $('#colorBox').trigger('getheight');
     };
 };
 
-function printFunction() {
-    window.print();
+// We hide the caret because it does some funky weird business
+const hideCaret = () => {
+    if (colorBox.style.caretColor != "transparent") {
+        colorBox.style.caretColor = "transparent";
+    }
+    if (textBox.style.caretColor != "transparent") {
+        textBox.style.caretColor = "transparent";
+    }
 }
 
-//The main rainbow function!
-function urFunction() {
-    event.preventDefault();
-    var x = event.keyCode;
-    var c = document.createElement("canvas");
+const typePunctuation = (punctuation) => {
+    colorBox.appendChild(document.createTextNode(punctuation));
+    textBox.appendChild(document.createTextNode(punctuation));
+}
+
+const rainbowFunction = event => {
+    // KeyboardEvent.keyCode, although deprecated, is still supported by all browsers as of 5/21/21
+    // (meanwhile, the currently recommended KeyboardEvent.key is not supported by IE)
+    let keyCode = event.keyCode;
+
+    // For accessibility we allow default key event for tab key
+    if (keyCode !== 9) {
+        event.preventDefault();
+    }
+    
+    // Only after the first keystroke has been made do we hide the caret
+    hideCaret();
+
+    // Let's only create a canvas element when needed 
+    // (i.e. for letters and spaces, but not for punctuation)
+    if (keyCode > 64 && keyCode < 91 || keyCode == 32) {
+        let c = document.createElement("canvas");
         c.setAttribute("width", "25px");
         c.setAttribute("height", "25px");
-        var ctx = c.getContext("2d");
-        ctx.arc(12.5,12.5,12.5,0,2*Math.PI);
+        let ctx = c.getContext("2d");
+        ctx.arc(12.5, 12.5, 12.5, 0, 2*Math.PI);
 
-///*SETTING THE KEYCODES*///
-    if (x == 13) { // ENTER
-        colorBox.appendChild(document.createElement('div'));
-        colorBox.appendChild(document.createElement('span'));
-        textBox.appendChild(document.createElement('div'));
-        textBox.appendChild(document.createElement('span'));
-    }  
-    else if (x == 8) { // BACKSPACE
-        colorBox.removeChild(colorBox.lastChild);
-        textBox.removeChild(textBox.lastChild);
-    }  
-    else if (x == 32) { // SPACE
-        textBox.appendChild(document.createTextNode("\u00A0"));
-        colorBox.appendChild(c);
-    }
-    else if (x == 190) { // PERIOD
-        colorBox.appendChild(document.createTextNode("."));
-        textBox.appendChild(document.createTextNode("."));
-    }
-    else if (x == 188) { // COMMA
-        colorBox.appendChild(document.createTextNode(","));
-        textBox.appendChild(document.createTextNode(","));
-    }
-    else if (x == 191) { // QUESTION MARK
-        colorBox.appendChild(document.createTextNode("?"));
-        textBox.appendChild(document.createTextNode("?"));
-    }
-    else if (x == 49) { // EXCLAMATION MARK
-        colorBox.appendChild(document.createTextNode("!"));
-        textBox.appendChild(document.createTextNode("!"));
-    }
-    else if (x == 222) { // APOSTROPHE
-        colorBox.appendChild(document.createTextNode("'"));
-        textBox.appendChild(document.createTextNode("'"));
-    }
-    else if (x == 189) { // HYPHEN
-        colorBox.appendChild(document.createTextNode("-"));
-        textBox.appendChild(document.createTextNode("-"));
-    }
-    else if (x == 65) { // LETTER A
-        textBox.appendChild(document.createTextNode("a"));
-        ctx.fillStyle = "pink"; //pinky pink
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 66) { // LETTER B
-        textBox.appendChild(document.createTextNode("b"));
-        ctx.fillStyle = "#ffb400"; //mac & cheese
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 67) { // LETTER C
-        textBox.appendChild(document.createTextNode("c"));
-        ctx.fillStyle = "#b2e21b"; //inchworm
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 68) { // LETTER D
-        textBox.appendChild(document.createTextNode("d"));
-        ctx.fillStyle = "#51670c"; //dark sea green
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 69) { // LETTER E
-        textBox.appendChild(document.createTextNode("e"));
-        ctx.fillStyle = "#85b4f5";  //periwinkle
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 70) { // LETTER F
-        textBox.appendChild(document.createTextNode("f"));
-        ctx.fillStyle = "#09e1e2"; //happy ever after
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 71) { // LETTER G
-        textBox.appendChild(document.createTextNode("g"));
-        ctx.fillStyle = "#6a1b93"; //purple mountains
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 72) { // LETTER H
-        textBox.appendChild(document.createTextNode("h"));
-        ctx.fillStyle = "#820224";  //brick red
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 73) { // LETTER I
-        textBox.appendChild(document.createTextNode("i"));
-        ctx.fillStyle = "#905695"; //red violet
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 74) { // LETTER J
-        textBox.appendChild(document.createTextNode("j"));
-        ctx.fillStyle = "#cc0000"; //red
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 75) { // LETTER K
-        textBox.appendChild(document.createTextNode("k"));
-        ctx.fillStyle = "#006b81"; //navy niblet
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 76) { // LETTER L
-        textBox.appendChild(document.createTextNode("l"));
-        ctx.fillStyle = "#f97160";  //melon
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 77) { // LETTER M
-        textBox.appendChild(document.createTextNode("m"));
-        ctx.fillStyle = "#849c64"; //asparagus
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 78) { // LETTER N
-        textBox.appendChild(document.createTextNode("n"));
-        ctx.fillStyle = "#07b0b1"; //robin's egg blue
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 79) { // LETTER O
-        textBox.appendChild(document.createTextNode("o"));
-        ctx.fillStyle = "#e0ee00";  //green yellow
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 80) { // LETTER P
-        textBox.appendChild(document.createTextNode("p"));
-        ctx.fillStyle = "#909090"; //gray
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 81) { // LETTER Q
-        textBox.appendChild(document.createTextNode("q"));
-        ctx.fillStyle = "#af9dd3"; //violet
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 82) { // LETTER R
-        textBox.appendChild(document.createTextNode("r"));
-        ctx.fillStyle = "#67552d"; //bear hug
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 83) { // LETTER S
-        textBox.appendChild(document.createTextNode("s"));
-        ctx.fillStyle = "#9a9a00"; //olive green
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 84) { // LETTER T
-        textBox.appendChild(document.createTextNode("t"));
-        ctx.fillStyle = "#ccae00";  //gold
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 85) { // LETTER U
-        textBox.appendChild(document.createTextNode("u"));
-        ctx.fillStyle = "#ff6f00";  //orange
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 86) { // LETTER V
-        textBox.appendChild(document.createTextNode("v"));
-        ctx.fillStyle = "#dddddd"; //silver
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 87) { // LETTER W
-        textBox.appendChild(document.createTextNode("w"));
-        ctx.fillStyle = "#0073e2"; //blue
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 88) { // LETTER X
-        textBox.appendChild(document.createTextNode("x"));
-        ctx.fillStyle = "#2cd996"; //sea green
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 89) { // LETTER Y
-        textBox.appendChild(document.createTextNode("y"));
-        ctx.fillStyle = "#99cfe0"; //cadet blue
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
-    else if (x == 90) { // LETTER Z
-        textBox.appendChild(document.createTextNode("z"));
-        ctx.fillStyle = "#fa7292"; //salmon
-        ctx.fill();
-        colorBox.appendChild(c);
-    }
+        typeLetter = (letter) => {
+            ctx.fillStyle = colors[letter].hex;
+            ctx.fill();
+            colorBox.appendChild(c);
+            textBox.appendChild(document.createTextNode(letter));
+        }
 
-    //Match textBox height to colorBox after every keystroke
-    $('#colorBox').trigger('getheight');
+        switch (keyCode) {
+            // Space
+            case 32:
+                textBox.appendChild(document.createTextNode("\u00A0"));
+                colorBox.appendChild(c);
+                break;
 
-}; // end urFunction  
+            // Letters
+            case 65:
+                typeLetter("a");
+                break;
+            case 66:
+                typeLetter("b");
+                break;
+            case 67:
+                typeLetter("c");
+                break;
+            case 68:
+                typeLetter("d");
+                break;
+            case 69:
+                typeLetter("e");
+                break;
+            case 70:
+                typeLetter("f");
+                break;
+            case 71:
+                typeLetter("g");
+                break;
+            case 72:
+                typeLetter("h");
+                break;
+            case 73:
+                typeLetter("i");
+                break;
+            case 74:
+                typeLetter("j");
+                break;
+            case 75:
+                typeLetter("k");
+                break;
+            case 76:
+                typeLetter("l");
+                break;
+            case 77:
+                typeLetter("m");
+                break;
+            case 78:
+                typeLetter("n");
+                break;
+            case 79:
+                typeLetter("o");
+                break;
+            case 80:
+                typeLetter("p");
+                break;
+            case 81:
+                typeLetter("q");
+                break;
+            case 82:
+                typeLetter("r");
+                break;
+            case 83:
+                typeLetter("s");
+                break;
+            case 84:
+                typeLetter("t");
+                break;
+            case 85:
+                typeLetter("u");
+                break;
+            case 86:
+                typeLetter("v");
+                break;
+            case 87:
+                typeLetter("w");
+                break;
+            case 88:
+                typeLetter("x");
+                break;
+            case 89:
+                typeLetter("y");
+                break;
+            case 90:
+                typeLetter("z");
+                break;
+        }
+    } else {
+        switch (keyCode) {
+            case 13: // enter
+                colorBox.appendChild(document.createElement('div'));
+                colorBox.appendChild(document.createElement('span'));
+                textBox.appendChild(document.createElement('div'));
+                textBox.appendChild(document.createElement('span'));
+                break;
+            case 8: // backspace
+                colorBox.removeChild(colorBox.lastChild);
+                textBox.removeChild(textBox.lastChild);
+                break;
+            
+            // Punctuation
+            case 190:
+                typePunctuation(".");
+                break;
+            case 188:
+                typePunctuation(",");
+                break;
+            case 191:
+                typePunctuation("?");
+                break;
+            case 49:
+                typePunctuation("!");
+                break;
+            case 222:
+                typePunctuation("'");
+                break;
+            case 189:
+                typePunctuation("-");
+                break;
+        }
+    }     
+};
+
+// I may re-implement this, so it's here for now
+
+//Make text textBox same height as colorBox
+// $('#colorBox').bind('getheight', function() {
+//     console.log("getheight");
+//     let colorBoxHeight = $('#colorBox').height();
+//     console.log(colorBoxHeight);
+//     $("#textBox").height(colorBoxHeight);
+// });
+
+// What is going on here?
+// $(window).resize(triggerBoom);
+
+// function triggerBoom(){
+//     console.log("Triggerboom");
+//     $('#colorBox').trigger('getheight');
+// };
